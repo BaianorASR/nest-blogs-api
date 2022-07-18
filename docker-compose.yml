@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  db:
+    image: mysql:5.7
+    container_name: blogs-api-database
+    restart: always
+    tty: true
+    ports:
+      - 3306:3306
+    volumes:
+      - blogs-api-db:/var/lib/mysql
+    environment:
+      - MYSQL_DATABASE=BlogsApi
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_USER=baianor
+volumes:
+  blogs-api-db:
+    external: true
