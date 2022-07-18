@@ -9,19 +9,19 @@ import {
 @Entity('users')
 export class User {
   @PrimaryGeneratedColumn('uuid')
-  id: string;
+  public id: string;
 
   @Column('varchar')
-  displayName: string;
+  public displayName: string;
 
   @Column('varchar', { unique: true })
-  email: string;
+  public email: string;
 
   @Column('varchar')
-  password: string;
+  public password: string;
 
   @Column('varchar')
-  image: string;
+  public image: string;
 
   @CreateDateColumn({
     name: 'created_at',
