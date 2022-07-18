@@ -6,6 +6,7 @@ import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { UserModule } from './modules/user/user.module';
+import { CategoryModule } from './modules/category/category.module';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { UserModule } from './modules/user/user.module';
       entities: [join(__dirname, '**', '*.entity.{ts,js}')],
     }),
     UserModule,
+    CategoryModule,
   ],
   controllers: [],
   providers: [],
