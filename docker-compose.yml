@@ -11,6 +11,8 @@ services:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_USER=baianor
       - MYSQL_PASSWORD=baianor
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
   redis:
     image: redis:7.0.2-alpine
     restart: always

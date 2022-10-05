@@ -1,6 +1,6 @@
 import { Body, Controller, Get, Param, Patch, Post } from '@nestjs/common';
 
-import { CreateUserDTO } from './DTOs/create-user.dto';
+import { CreateUserDTO } from './dto/create-user.dto';
 import { UserService } from './user.service';
 
 @Controller('users')
@@ -9,7 +9,7 @@ export class UserController {
 
   @Get()
   findAll() {
-    return 'Hello World';
+    return this.userService.findAll();
   }
 
   @Get(':id')
