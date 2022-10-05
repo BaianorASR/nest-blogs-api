@@ -1,29 +1,25 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { join } from 'path';
-
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { UserModule } from './modules/user/user.module';
 import { CategoryModule } from './modules/category/category.module';
+import { TypeOrmModule } from '@nestjs/typeorm';
 
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
     TypeOrmModule.forRoot({
-      // @ts-ignore
-      type: process.env.TYPEORM_CONNECTION,
-      host: process.env.TYPEORM_HOST,
-      port: parseInt(process.env.TYPEORM_PORT, 10),
-      username: process.env.TYPEORM_USERNAME,
-      password: process.env.TYPEORM_PASSWORD,
-      database: process.env.TYPEORM_DATABASE,
-
-      autoLoadEntities: true,
+      type: 'mysql',
+      host: 'db',
+      port: 3306,
+      username: 'baianor',
+      password: 'baianor',
+      database: 'BlogsApi',
+      entities: ['**/*.entity.js'],
       logging: true,
       synchronize: false,
-      entities: [join(__dirname, '**', '*.entity.{ts,js}')],
+      migrations: ['./typeorm/migrations/**/*.ts'],
     }),
     UserModule,
     CategoryModule,

@@ -23,18 +23,9 @@ export class User {
   @Column('varchar')
   public image: string;
 
-  @CreateDateColumn({
-    name: 'created_at',
-    type: 'timestamp',
-    default: 'CURRENT_TIMESTAMP()',
-  })
+  @CreateDateColumn()
   public createdAt: Date;
 
-  @UpdateDateColumn({
-    name: 'updated_at',
-    type: 'timestamp',
-    default: 'CURRENT_TIMESTAMP()',
-    onUpdate: 'CURRENT_TIMESTAMP()',
-  })
+  @UpdateDateColumn()
   public updatedAt: Date;
 }

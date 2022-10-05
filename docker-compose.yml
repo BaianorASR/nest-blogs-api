@@ -1,19 +1,36 @@
-version: '3'
+version: '3.9'
 
 services:
   db:
     image: mysql:5.7
-    container_name: blogs-api-database
     restart: always
-    tty: true
     ports:
       - 3306:3306
-    volumes:
-      - blogs-api-db:/var/lib/mysql
     environment:
       - MYSQL_DATABASE=BlogsApi
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_USER=baianor
-volumes:
-  blogs-api-db:
-    external: true
+      - MYSQL_PASSWORD=baianor
+  redis:
+    image: redis:7.0.2-alpine
+    restart: always
+    depends_on:
+      - db
+  api:
+    image: blogs-api
+    build:
+      dockerfile: ./Dockerfile
+      context: .
+      target: dev
+    volumes:
+      - .:/app
+      - /app/node_modules
+    ports:
+      - 3001:3001
+    restart: always
+    env_file:
+      - ./.env
+    depends_on:
+      - db
+      - redis
+    command: yarn start:dev

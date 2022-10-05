@@ -3,13 +3,13 @@ import { Body, Controller, Get, Param, Patch, Post } from '@nestjs/common';
 import { CreateUserDTO } from './DTOs/create-user.dto';
 import { UserService } from './user.service';
 
-@Controller('user')
+@Controller('users')
 export class UserController {
   constructor(private readonly userService: UserService) {}
 
   @Get()
   findAll() {
-    return this.userService.findAll();
+    return 'Hello World';
   }
 
   @Get(':id')
