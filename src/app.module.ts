@@ -2,7 +2,7 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 
-import { UserModule } from './modules/user/user.module';
+import { UsersModule } from './modules/user/users.module';
 import { CategoryModule } from './modules/category/category.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
@@ -22,7 +22,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
       synchronize: true,
       migrations: ['./typeorm/migrations/**/*.ts'],
     }),
-    UserModule,
+    UsersModule,
     CategoryModule,
   ],
   controllers: [],
