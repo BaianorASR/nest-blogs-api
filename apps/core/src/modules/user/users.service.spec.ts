@@ -1,8 +1,10 @@
-import { TestingDatabaseModule } from '@common/common';
-import { User } from '@common/common/database/entities/user.entity';
+import { Repository } from 'typeorm';
+
+import { TestingDatabaseModule } from '@lib/common';
+import { User } from '@lib/common/database/entities/user.entity';
 import { Test, TestingModule } from '@nestjs/testing';
 import { getRepositoryToken } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+
 import { AppModule } from '../../app.module';
 import { UsersService } from './users.service';
 

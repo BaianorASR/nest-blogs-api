@@ -1,16 +1,12 @@
-FROM node:16.16-alpine AS base
+FROM node:18.9.0-alpine AS base
 
-USER node
-WORKDIR /home/node/app
-
+WORKDIR /app
 COPY [ "package*.json", "tsconfig.build.json", "tsconfig.json", "yarn.lock" , "./" ]
 
 FROM base AS dev
-
 RUN yarn install --frozen-lockfile
 COPY . .
 EXPOSE 3001
-CMD [ "yarn", "start:dev"]
 
 FROM base AS prod
 
@@ -19,4 +15,4 @@ COPY . .
 RUN yarn global add @nestjs/cli
 RUN yarn build
 EXPOSE 3001
-CMD [ "yarn", "start:prod" ]
+CMD [ "yarn", "start:prod core" ]

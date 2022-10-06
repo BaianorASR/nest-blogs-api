@@ -1,6 +1,8 @@
-import { User } from '@common/common/database/entities/user.entity';
 import 'dotenv/config';
+
 import { MysqlConnectionOptions } from 'typeorm/driver/mysql/MysqlConnectionOptions';
+
+import { User } from '@lib/common/database/entities/user.entity';
 
 const defaultConfig: MysqlConnectionOptions = {
   type: 'mysql',

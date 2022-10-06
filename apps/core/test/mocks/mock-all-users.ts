@@ -1,4 +1,4 @@
-import { User } from '../../libs/common/src/database/entities/user.entity';
+import { User } from '../../../../libs/common/src/database/entities/user.entity';
 
 export const MockAllUsers: User[] = [
   {
