@@ -72,6 +72,9 @@
     "transform": {
       "^.+\\.(t|j)s$": "ts-jest"
     },
+    "coveragePathIgnorePatterns": [
+      "<rootDir>/src/typeorm/"
+    ],
     "collectCoverageFrom": [
       "**/*.(t|j)s"
     ],
