@@ -51,6 +51,7 @@
     "eslint": "^8.0.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
+    "import-sort-parser-typescript": "^6.0.0",
     "jest": "28.0.3",
     "prettier": "^2.3.2",
     "source-map-support": "^0.5.20",
@@ -81,11 +82,11 @@
     "coverageDirectory": "./coverage",
     "testEnvironment": "node",
     "roots": [
-      "<rootDir>/apps/",
-      "<rootDir>/libs/"
+      "<rootDir>/src/"
     ],
     "moduleNameMapper": {
-      "^@lib/common(|/.*)$": "<rootDir>/libs/common/src/$1"
+      "^@app/database(|/.*)$": "<rootDir>/src/database/$1",
+      "^@app/database": "<rootDir>/src/database"
     }
   }
 }

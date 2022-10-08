@@ -20,8 +20,8 @@
     "esModuleInterop": true,
     "moduleResolution": "node",
     "paths": {
-      "@lib/common": ["libs/common/src"],
-      "@lib/common/*": ["libs/common/src/*"]
+      "@app/database": ["src/database/"],
+      "@app/database/*": ["src/database/*"]
     }
   }
 }

@@ -4,7 +4,7 @@ services:
   api:
     image: blogs-api
     build:
-      dockerfile: ./apps/core/Dockerfile
+      dockerfile: ./Dockerfile
       context: .
       target: dev
     volumes:
@@ -14,7 +14,7 @@ services:
       - '3001:3001'
     restart: always
     env_file:
-      - ./apps/core/.env
+      - .env
     depends_on:
       - db
       - redis
@@ -31,7 +31,7 @@ services:
       - MYSQL_USER=baianor
       - MYSQL_PASSWORD=baianor
     healthcheck:
-      test: ['CMD', 'mysqladmin', 'ping', '-h', 'localhost']
+      test: [ 'CMD', 'mysqladmin', 'ping', '-h', 'localhost' ]
       timeout: 5s
       retries: 2
   redis:
@@ -49,6 +49,6 @@ services:
       - MYSQL_USER=tester
       - MYSQL_PASSWORD=testing
     healthcheck:
-      test: ['CMD', 'mysqladmin', 'ping', '-h', 'localhost']
+      test: [ 'CMD', 'mysqladmin', 'ping', '-h', 'localhost' ]
       timeout: 5s
       retries: 2
