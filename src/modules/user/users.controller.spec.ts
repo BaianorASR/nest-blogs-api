@@ -1,6 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 
 import { MockAllUsers } from '../../../test/mocks/mock-all-users';
+
 import { UsersController } from './users.controller';
 import { UsersService } from './users.service';
 

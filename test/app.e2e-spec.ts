@@ -1,10 +1,10 @@
 import request = require('supertest');
-
-import { TestingDatabaseModule } from '@app/database/testing-database.module';
 import { INestApplication } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
 
 import { AppModule } from '../src/app.module';
+
+import { TestingDatabaseModule } from '@app/database/testing-database.module';
 
 describe('AppController (e2e)', () => {
   let app: INestApplication;

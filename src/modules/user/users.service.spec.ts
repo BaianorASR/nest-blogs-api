@@ -1,12 +1,13 @@
 import { Repository } from 'typeorm';
-
-import { User } from '@app/database/entities';
-import { TestingDatabaseModule } from '@app/database/testing-database.module';
 import { Test, TestingModule } from '@nestjs/testing';
 import { getRepositoryToken } from '@nestjs/typeorm';
 
 import { AppModule } from '../../app.module';
+
 import { UsersService } from './users.service';
+
+import { TestingDatabaseModule } from '@app/database/testing-database.module';
+import { User } from '@app/database/entities';
 
 describe('UsersService', () => {
   let service: UsersService;
